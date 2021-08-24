@@ -4,8 +4,7 @@ import sys
 from django.db import models
 
 # Create your models here.
-from blog.models import *
-
+from blog.models import Post
 '''
 curPath = os.path.abspath(os.path.dirname(__file__))
 rootPath = os.path.split(curPath)[0]
@@ -30,3 +29,7 @@ class Comment(models.Model):
 
     class Meta:
         verbose_name = verbose_name_plural = '评论'
+
+    #将<object>显示为评论目标
+    def __str__(self):
+        return self.content
